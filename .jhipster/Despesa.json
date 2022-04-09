@@ -1,0 +1,21 @@
+{
+  "applications": "*",
+  "changelogDate": "20220409041659",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "despesa",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Despesa",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
