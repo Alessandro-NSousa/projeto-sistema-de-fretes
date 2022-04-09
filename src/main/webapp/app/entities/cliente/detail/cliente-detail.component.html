@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cliente">
+      <h2 data-cy="clienteDetailsHeading"><span jhiTranslate="sistemaDeFretesApp.cliente.detail.title">Cliente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cliente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.nome">Nome</span></dt>
+        <dd>
+          <span>{{ cliente.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.telefone">Telefone</span></dt>
+        <dd>
+          <span>{{ cliente.telefone }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.telefoneAdicional">Telefone Adicional</span></dt>
+        <dd>
+          <span>{{ cliente.telefoneAdicional }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.cnh">Cnh</span></dt>
+        <dd>
+          <span>{{ cliente.cnh }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.sexo">Sexo</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sistemaDeFretesApp.Sexo.' + cliente.sexo }}">{{ cliente.sexo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.endereco">Endereco</span></dt>
+        <dd>
+          <div *ngIf="cliente.endereco">
+            <a [routerLink]="['/endereco', cliente.endereco?.id, 'view']">{{ cliente.endereco?.logradouro }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sistemaDeFretesApp.cliente.cidade">Cidade</span></dt>
+        <dd>
+          <div *ngIf="cliente.cidade">
+            <a [routerLink]="['/cidade', cliente.cidade?.id, 'view']">{{ cliente.cidade?.nome }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
